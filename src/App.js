@@ -25,23 +25,21 @@ function App() {
 export default App;
 */
 import React from "react"
-import {decrement, increment, log} from './actions'
-import {useSelector,useDispatch} from 'react-redux'
-import isLoggedReducer from "./reducers/isLogged"
+import Contact from './contact'
+import jokesData from "./data"
 
-//import Joke from "./components/joke"
- function App(){
-   const val=isLoggedReducer?"signIn":"sign Out"
-   const counter=useSelector(state => state.counter)
-   const dispatch=useDispatch();
-   return(
-     <div>
-       <h1>Counter={counter}</h1>
 
-       <button onClick={()=> dispatch(increment())}>+</button>
-       <button onClick={()=> dispatch(decrement())}>-</button> <br/>
-       <button onClick={()=>dispatch(log())}> {val}</button>
-     </div>
-   )
- }
+
+
+
+function App() {
+  const ContactData=  jokesData.map(data=> <Contact name={data.name} phone={data.phone} />)
+  return (
+    
+     <div>   
+       {ContactData}
+    </div>
+)
+}
+
 export default App
